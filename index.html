@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>마케팅 1팀 · 2026년 6월 결산 보고서</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a2230; --ink-soft:#5a6675;
+    --paper:#f5f7fa; --card:#ffffff; --line:#e2e8f0;
+    --accent0:#3a6ea5; --accent0-soft:#eaf1f9;
+    --meta:#2c5f9e; --google:#c65b2e; --gfa:#5b8c3e;
+    --roas-high:#1f9d57; --roas-high-bg:#e6f6ed;
+    --roas-mid:#b07d12; --roas-mid-bg:#fbf2dc;
+    --roas-low:#d64545; --roas-low-bg:#fbe9e9;
+    --kill:#c0392b; --kill-bg:#fdeceb;
+    --shadow:0 1px 2px rgba(26,34,48,.04), 0 12px 32px -20px rgba(26,34,48,.35);
+    --font:"Pretendard","Pretendard Variable",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+    --mono:"DM Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--ink);background:var(--paper);line-height:1.65;
+    word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px 100px;position:relative}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+
+  header.mast{padding:56px 0 30px}
+  .kicker{font-weight:700;font-size:.74rem;letter-spacing:.16em;color:var(--accent0);text-transform:uppercase;margin-bottom:14px}
+  header.mast h1{font-size:2.5rem;letter-spacing:-.03em;line-height:1.12;margin-bottom:12px}
+  header.mast h1 span{color:var(--accent0)}
+  .sub{color:var(--ink-soft);font-size:1.02rem;max-width:660px}
+  .period{display:inline-flex;gap:8px;align-items:center;margin-top:16px;padding:7px 15px;
+    background:var(--accent0-soft);border-radius:100px;font-size:.82rem;font-weight:600;color:var(--accent0)}
+
+  .kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 10px}
+  @media(max-width:760px){.kpi-banner{grid-template-columns:repeat(2,1fr)}}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 18px;box-shadow:var(--shadow)}
+  .kpi .lbl{font-size:.74rem;font-weight:700;letter-spacing:.04em;color:var(--ink-soft);margin-bottom:9px;text-transform:uppercase}
+  .kpi .val{font-size:1.95rem;font-weight:800;letter-spacing:-.03em;line-height:1;font-family:var(--mono)}
+  .kpi .val small{font-size:.9rem;font-weight:600;color:var(--ink-soft)}
+  .kpi .sub2{font-size:.78rem;color:var(--ink-soft);margin-top:8px}
+  .kpi.blue{border-top:3px solid var(--meta)}
+  .kpi.green{border-top:3px solid var(--roas-high)}
+  .kpi.amber{border-top:3px solid var(--roas-mid)}
+  .kpi.violet{border-top:3px solid #7c5cbf}
+
+  section{margin-top:44px}
+  .sec-head{display:flex;align-items:center;gap:13px;margin-bottom:8px}
+  .sec-num{width:30px;height:30px;border-radius:9px;background:var(--accent0);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;flex:0 0 auto}
+  .sec-head h2{font-size:1.4rem;letter-spacing:-.02em}
+  .sec-desc{color:var(--ink-soft);font-size:.92rem;margin-bottom:20px;max-width:780px}
+  .sec-desc b{color:var(--ink)}
+  .grp-h{font-size:1rem;font-weight:800;letter-spacing:-.01em;margin:22px 0 12px;color:var(--ink);display:flex;align-items:center;gap:7px}
+  .grp-h:first-of-type{margin-top:4px}
+
+  .tbl-wrap{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:18px;overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:480px}
+  caption{text-align:left;padding:15px 20px 0;font-weight:700;font-size:.92rem;color:var(--ink)}
+  thead th{text-align:right;padding:12px 16px;font-size:.76rem;font-weight:700;color:var(--ink-soft);
+    border-bottom:1.5px solid var(--line);white-space:nowrap;letter-spacing:.02em}
+  thead th:first-child{text-align:left}
+  tbody td{padding:12px 16px;text-align:right;border-bottom:1px solid var(--line);font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+  tbody td:first-child{text-align:left;font-family:var(--font);font-weight:600;white-space:normal}
+  tbody tr:last-child td{border-bottom:none}
+  tr.total td{background:var(--accent0-soft);font-weight:800;border-top:1.5px solid var(--line)}
+  tr.total td:first-child{color:var(--accent0)}
+  .roas{font-weight:700;padding:2px 9px;border-radius:7px;font-size:.86rem}
+  .roas-high{background:var(--roas-high-bg);color:var(--roas-high)}
+  .roas-mid{background:var(--roas-mid-bg);color:var(--roas-mid)}
+  .roas-low{background:var(--roas-low-bg);color:var(--roas-low)}
+  .name-sm{font-size:.78em;color:var(--ink-soft);font-weight:500}
+  .badge{display:inline-block;padding:2px 9px;border-radius:6px;font-size:.7rem;font-weight:700;color:#fff;margin-right:7px;vertical-align:1px}
+  .b-meta{background:var(--meta)} .b-google{background:var(--google)} .b-gfa{background:var(--gfa)}
+
+  .note{margin-top:16px;padding:15px 19px;border-left:4px solid var(--accent0);
+    background:var(--accent0-soft);border-radius:0 10px 10px 0;font-size:.9rem}
+  .note .tag{font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent0);display:block;margin-bottom:6px}
+  .note p{margin:0 0 7px}.note p:last-child{margin:0}
+
+  .share{display:grid;gap:11px;margin-top:6px}
+  .share-row{display:grid;grid-template-columns:110px 1fr auto;gap:12px;align-items:center;font-size:.86rem}
+  .share-row .pn{font-weight:600}
+  .share-bar{height:22px;background:var(--paper);border-radius:6px;overflow:hidden;position:relative}
+  .share-bar span{position:absolute;left:0;top:0;bottom:0;border-radius:6px;background:linear-gradient(90deg,var(--meta),#4d82c4)}
+  .share-row .pct{font-family:var(--mono);font-weight:700;color:var(--ink-soft);min-width:52px;text-align:right}
+
+  .wk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:6px}
+  @media(max-width:760px){.wk-grid{grid-template-columns:repeat(2,1fr)}}
+  .wk-card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px 15px;text-align:center;box-shadow:var(--shadow)}
+  .wk-card .w{font-size:.78rem;font-weight:700;color:var(--ink-soft);margin-bottom:8px}
+  .wk-card .r{font-size:1.5rem;font-weight:800;font-family:var(--mono);line-height:1}
+  .wk-card .r.pk{color:var(--roas-high)}
+  .wk-card .d{font-size:.74rem;color:var(--ink-soft);margin-top:7px}
+  .wk-card.peak{border-color:var(--roas-high);background:var(--roas-high-bg)}
+
+  /* manager cards */
+  .mgr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:6px}
+  @media(max-width:680px){.mgr-grid{grid-template-columns:1fr}}
+  .mgr{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);position:relative}
+  .mgr.lead{border-top:3px solid var(--roas-high)}
+  .mgr h4{font-size:1.05rem;margin-bottom:3px;display:flex;align-items:center;gap:8px}
+  .mgr .role{font-size:.72rem;color:var(--ink-soft);font-weight:500}
+  .mgr .stat{display:flex;gap:16px;margin:12px 0 10px;flex-wrap:wrap}
+  .mgr .stat .s{display:flex;flex-direction:column}
+  .mgr .stat .s .k{font-size:.68rem;color:var(--ink-soft);font-weight:700;text-transform:uppercase;letter-spacing:.03em}
+  .mgr .stat .s .v{font-size:1.15rem;font-weight:800;font-family:var(--mono);line-height:1.2}
+  .kill-badge{position:absolute;top:16px;right:18px;background:var(--kill-bg);color:var(--kill);
+    font-weight:800;font-size:.78rem;padding:5px 11px;border-radius:100px;display:flex;align-items:center;gap:5px}
+  .kill-badge .n{font-family:var(--mono);font-size:1rem}
+  .kill-list{list-style:none;margin:8px 0 0;padding:11px 0 0;border-top:1px dashed var(--line);display:grid;gap:6px}
+  .kill-list li{font-size:.83rem;line-height:1.4;display:flex;gap:8px;align-items:baseline}
+  .kill-list li .fire{color:var(--kill);flex:0 0 auto}
+  .kill-list li .mm{font-weight:600}
+  .kill-list li .sp{margin-left:auto;font-family:var(--mono);color:var(--ink-soft);font-size:.78rem;white-space:nowrap}
+  .kill-list li .ro{font-family:var(--mono);font-weight:700;color:var(--roas-high);white-space:nowrap}
+  .none{font-size:.82rem;color:var(--ink-soft);margin-top:9px;padding-top:9px;border-top:1px dashed var(--line)}
+  /* candidate toggle */
+  .cand{margin-top:11px;border-top:1px dashed var(--line);padding-top:10px}
+  .cand>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:7px;
+    font-size:.76rem;font-weight:700;color:var(--roas-mid);user-select:none}
+  .cand>summary::-webkit-details-marker{display:none}
+  .cand>summary .cnum{font-family:var(--mono);background:var(--roas-mid-bg);padding:1px 7px;border-radius:100px}
+  .cand>summary::after{content:"▸";margin-left:auto;transition:transform .18s ease;color:var(--ink-soft)}
+  .cand[open]>summary::after{transform:rotate(90deg)}
+  .cand-list{list-style:none;margin:9px 0 0;padding:0;display:grid;gap:5px}
+  .cand-list li{font-size:.8rem;line-height:1.4;display:flex;gap:8px;align-items:baseline;color:var(--ink-soft)}
+  .cand-list li .cm{font-weight:600;color:var(--ink)}
+  .cand-list li .sp{margin-left:auto;font-family:var(--mono);font-size:.76rem;white-space:nowrap}
+  .cand-list li .ro{font-family:var(--mono);font-weight:700;color:var(--roas-mid);white-space:nowrap}
+  .cand-note{font-size:.76rem;color:var(--ink-soft);margin-top:9px;line-height:1.5;font-style:italic}
+
+  .ins-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+  @media(max-width:680px){.ins-grid{grid-template-columns:1fr}}
+  .ins{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:17px 19px;box-shadow:var(--shadow)}
+  .ins.good{border-left:4px solid var(--roas-high)}
+  .ins.watch{border-left:4px solid var(--roas-mid)}
+  .ins h4{font-size:.92rem;margin-bottom:9px;display:flex;align-items:center;gap:7px}
+  .ins p{font-size:.87rem;color:var(--ink-soft);line-height:1.55;margin:0}
+  .ins p b{color:var(--ink)}
+
+  .kdef{display:inline-flex;gap:6px;align-items:center;background:var(--kill-bg);color:var(--kill);
+    font-size:.78rem;font-weight:700;padding:4px 11px;border-radius:8px;margin-bottom:14px}
+
+  footer{margin-top:60px;padding-top:26px;border-top:1px solid var(--line);color:var(--ink-soft);font-size:.82rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div class="kicker">Marketing Team 1 · Monthly Settlement</div>
+    <h1>마케팅 1팀 <span>6월 콘텐츠 성과 결산</span></h1>
+    <p class="sub">2026년 6월 한 달간의 META·구글·GFA 채널 성과와 담당자별 콘텐츠 성과를 결산합니다.<br><span style="font-size:.92em;opacity:.8">META·구글은 아임웹 매출(전환) 기준, GFA는 매체 매출 기준입니다.</span></p>
+    <div class="period">📅 2026. 06. 01 ~ 06. 30 · 전 채널 통합</div>
+  </header>
+
+  <div class="kpi-banner">
+    <div class="kpi blue">
+      <div class="lbl">전 채널 광고비</div>
+      <div class="val">2.71<small>억</small></div>
+      <div class="sub2">270,539,416원</div>
+    </div>
+    <div class="kpi green">
+      <div class="lbl">META 아임웹 매출</div>
+      <div class="val">3.90<small>억</small></div>
+      <div class="sub2">389,923,024원 · 178%</div>
+    </div>
+    <div class="kpi amber">
+      <div class="lbl">킬콘 · 후보 (4인)</div>
+      <div class="val">9<small>+12</small></div>
+      <div class="sub2">킬콘 9 · 후보 12건</div>
+    </div>
+    <div class="kpi violet">
+      <div class="lbl">최다 킬콘 담당</div>
+      <div class="val" style="font-size:1.5rem">김승희</div>
+      <div class="sub2">킬콘 5건 · 아임웹 196%</div>
+    </div>
+  </div>
+
+  <!-- 1. 채널별 -->
+  <section>
+    <div class="sec-head"><span class="sec-num">1</span><h2>채널별 결산</h2></div>
+    <p class="sec-desc">6월 전 채널 성과. <b>META·구글은 아임웹 매출 기준</b>, <b>GFA는 매체 매출 기준</b>입니다. META가 전체 광고비의 81%로 주력 채널이고, GFA는 매체 ROAS 231%로 효율이 가장 높습니다.</p>
+    <div class="tbl-wrap">
+      <table>
+        <caption>채널별 6월 종합</caption>
+        <thead><tr><th>채널</th><th>기준</th><th>광고비</th><th>매출</th><th>전환</th><th>ROAS</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge b-meta">META</span></td><td style="text-align:left;font-family:var(--font);color:var(--ink-soft)">아임웹</td><td>219,595,132</td><td>389,923,239</td><td>2,916</td><td><span class="roas roas-high">178%</span></td></tr>
+          <tr><td><span class="badge b-google">구글</span></td><td style="text-align:left;font-family:var(--font);color:var(--ink-soft)">아임웹</td><td>11,627,865</td><td>10,802,286</td><td>80</td><td><span class="roas roas-low">93%</span></td></tr>
+          <tr><td><span class="badge b-gfa">GFA</span></td><td style="text-align:left;font-family:var(--font);color:var(--ink-soft)">매체</td><td>39,316,419</td><td>90,633,360</td><td>634</td><td><span class="roas roas-high">231%</span></td></tr>
+          <tr class="total"><td>합계</td><td style="text-align:left;color:var(--accent0)">—</td><td>270,539,416</td><td>491,358,885</td><td>3,630</td><td><span class="roas roas-high">182%</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <span class="tag">채널 포인트</span>
+      <p><b>META</b>가 광고비의 81%를 담당하며 아임웹 178%로 실적을 견인 — 규모·효율 모두 핵심 채널</p>
+      <p><b>GFA</b>는 매체 ROAS <b>231%</b>로 효율이 가장 우수</p>
+      <p><b>구글</b>은 리타겟 → 논타겟 확장이 주요 액션이며, <b>PA는 러프하게 검증 완료</b> — 3Q 핵심 목표인 PA 확장의 검증된 주력</p>
+    </div>
+  </section>
+
+  <!-- 2. 상품별 -->
+  <section>
+    <div class="sec-head"><span class="sec-num">2</span><h2>상품별 결산 <span class="name-sm" style="font-size:.6em">· META 아임웹</span></h2></div>
+    <p class="sec-desc">6월 4개 주력 상품의 META 성과. 목마사지베개V2가 매출의 절반 이상을 차지합니다.</p>
+    <div class="tbl-wrap">
+      <table>
+        <caption>상품별 6월 META 성과</caption>
+        <thead><tr><th>상품</th><th>광고비</th><th>아임웹 매출</th><th>전환</th><th>ROAS</th><th>비중</th></tr></thead>
+        <tbody>
+          <tr><td>목마사지베개V2</td><td>113,185,542</td><td>206,806,089</td><td>1,579</td><td><span class="roas roas-high">183%</span></td><td>53%</td></tr>
+          <tr><td>팔꿈치마사지기</td><td>53,345,472</td><td>91,379,510</td><td>574</td><td><span class="roas roas-high">171%</span></td><td>23%</td></tr>
+          <tr><td>목베개플러스</td><td>35,776,347</td><td>63,556,097</td><td>583</td><td><span class="roas roas-high">178%</span></td><td>16%</td></tr>
+          <tr><td>허리편한케어</td><td>17,287,771</td><td>28,181,543</td><td>180</td><td><span class="roas roas-mid">163%</span></td><td>7%</td></tr>
+          <tr class="total"><td>합계</td><td>219,595,132</td><td>389,923,239</td><td>2,916</td><td><span class="roas roas-high">178%</span></td><td>100%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <span class="tag">상품 포인트</span>
+      <p><b>목베개V2</b> 아임웹 183%로 규모·효율 1위 — 버섯목·일자목·홈쇼핑·프로모션 라인이 고르게 기여</p>
+      <p><b>팔꿈치</b>(171%)는 두 번째 매출축으로 성장, <b>허편케</b>(163%)는 하반기 디벨롭 우선순위로 효율 개선 여지</p>
+    </div>
+  </section>
+
+  <!-- 3. 담당자별 킬콘 -->
+  <section>
+    <div class="sec-head"><span class="sec-num">3</span><h2>담당자별 콘텐츠 성과 & 킬콘</h2></div>
+    <p class="sec-desc">4인의 META 소재 <b>킬콘</b>·<b>킬콘 후보</b> 현황. 후보가 많다는 건 소구점·페르소나의 뾰족함이 먹혔다는 신호 — 빠른 디벨롭·운영으로 킬콘 승격까지 이어진 결과입니다.</p>
+    <div class="kdef">🔥 킬콘 — 광고비 450만원↑ &amp; ROAS 150%↑ <span style="opacity:.55;margin:0 6px">|</span> 🟡 킬콘 후보 — 주 34만원(월 136만)↑ &amp; ROAS 150%↑</div>
+    <div class="mgr-grid">
+
+      <div class="mgr lead">
+        <div class="kill-badge">🔥 킬콘 <span class="n">5</span></div>
+        <h4>김승희</h4>
+        <div class="role">버섯목·일자목·팔꿈치 통증 라인</div>
+        <div class="stat">
+          <div class="s"><span class="k">킬콘 광고비</span><span class="v">5,346만</span></div>
+          <div class="s"><span class="k">전체 아임웹</span><span class="v" style="color:var(--roas-high)">196%</span></div>
+        </div>
+        <ul class="kill-list">
+          <li><span class="fire">🔥</span><span class="mm">버섯목 키네벤치A(인체훅)</span><span class="sp">2,023만</span><span class="ro">238%</span></li>
+          <li><span class="fire">🔥</span><span class="mm">팔꿈치 희진님벤치C(뼈소스훅)</span><span class="sp">1,411만</span><span class="ro">159%</span></li>
+          <li><span class="fire">🔥</span><span class="mm">버섯목 키네벤치C(공감훅)</span><span class="sp">680만</span><span class="ro">184%</span></li>
+          <li><span class="fire">🔥</span><span class="mm">버섯목 4주차C(자가진단)</span><span class="sp">668만</span><span class="ro">175%</span></li>
+          <li><span class="fire">🔥</span><span class="mm">일자목 머리떨굼C(공감스트레칭)</span><span class="sp">564만</span><span class="ro">227%</span></li>
+        </ul>
+        <details class="cand">
+          <summary>킬콘 후보 <span class="cnum">7</span></summary>
+          <ul class="cand-list">
+            <li><span class="cm">버섯목 키네벤치D(행동유도)</span><span class="sp">373만</span><span class="ro">187%</span></li>
+            <li><span class="cm">버섯목 키네배너결합(질병)</span><span class="sp">329만</span><span class="ro">171%</span></li>
+            <li><span class="cm">버섯목 단컷볼록살</span><span class="sp">276만</span><span class="ro">170%</span></li>
+            <li><span class="cm">일자목 머리떨굼A(AI각목)</span><span class="sp">217만</span><span class="ro">204%</span></li>
+            <li><span class="cm">버섯목 인간BA</span><span class="sp">215만</span><span class="ro">199%</span></li>
+            <li><span class="cm">일자목 머리떨굼B(공포증후군)</span><span class="sp">199만</span><span class="ro">164%</span></li>
+            <li><span class="cm">에이든팍 고효율적용D(거북목훅)</span><span class="sp">169만</span><span class="ro">206%</span></li>
+          </ul>
+          <p class="cand-note">버섯목·일자목을 훅·페르소나별로 촘촘히 쪼갠 결과 — 승격 대기층이 가장 두터움.</p>
+        </details>
+      </div>
+
+      <div class="mgr">
+        <div class="kill-badge">🔥 킬콘 <span class="n">2</span></div>
+        <h4>최현진</h4>
+        <div class="role">홈쇼핑·프로모션·수면장애 라인</div>
+        <div class="stat">
+          <div class="s"><span class="k">킬콘 광고비</span><span class="v">2,899만</span></div>
+          <div class="s"><span class="k">전체 아임웹</span><span class="v" style="color:var(--roas-high)">183%</span></div>
+        </div>
+        <ul class="kill-list">
+          <li><span class="fire">🔥</span><span class="mm">프로모션(OS) 가정의달C</span><span class="sp">1,826만</span><span class="ro">172%</span></li>
+          <li><span class="fire">🔥</span><span class="mm">홈쇼핑 실제리뷰(신뢰감)</span><span class="sp">1,072만</span><span class="ro">185%</span></li>
+        </ul>
+        <details class="cand">
+          <summary>킬콘 후보 <span class="cnum">2</span></summary>
+          <ul class="cand-list">
+            <li><span class="cm">수면장애 수면제베개</span><span class="sp">440만</span><span class="ro">200%</span></li>
+            <li><span class="cm">프로모션 역대네고디벨롭</span><span class="sp">392만</span><span class="ro">153%</span></li>
+          </ul>
+          <p class="cand-note">수면제베개 440만·200%로 킬콘 문턱 근접 — 증액 시 즉시 승격.</p>
+        </details>
+      </div>
+
+      <div class="mgr">
+        <div class="kill-badge">🔥 킬콘 <span class="n">1</span></div>
+        <h4>김희진</h4>
+        <div class="role">팔꿈치 헬스엘보·인플루언서 라인</div>
+        <div class="stat">
+          <div class="s"><span class="k">킬콘 광고비</span><span class="v">484만</span></div>
+          <div class="s"><span class="k">전체 아임웹</span><span class="v" style="color:var(--roas-high)">175%</span></div>
+        </div>
+        <ul class="kill-list">
+          <li><span class="fire">🔥</span><span class="mm">팔꿈치 헬스엘보 혜택디벨</span><span class="sp">484만</span><span class="ro">175%</span></li>
+        </ul>
+        <details class="cand">
+          <summary>킬콘 후보 <span class="cnum">1</span></summary>
+          <ul class="cand-list">
+            <li><span class="cm">팔꿈치 인플루언서_전부</span><span class="sp">202만</span><span class="ro">218%</span></li>
+          </ul>
+          <p class="cand-note">인플루언서_전부 218%로 볼륨 확대 여지.</p>
+        </details>
+      </div>
+
+      <div class="mgr">
+        <div class="kill-badge">🔥 킬콘 <span class="n">1</span></div>
+        <h4>김익환 <span class="role">(자연 PA)</span></h4>
+        <div class="role">목베개V2·팔꿈치 PA 운영</div>
+        <div class="stat">
+          <div class="s"><span class="k">킬콘 광고비</span><span class="v">498만</span></div>
+          <div class="s"><span class="k">전체 아임웹</span><span class="v" style="color:var(--roas-mid)">163%</span></div>
+        </div>
+        <ul class="kill-list">
+          <li><span class="fire">🔥</span><span class="mm">PA_오룸 <span class="name-sm">(매체 438%)</span></span><span class="sp">498만</span><span class="ro">215%</span></li>
+        </ul>
+        <details class="cand">
+          <summary>킬콘 후보 <span class="cnum">2</span></summary>
+          <ul class="cand-list">
+            <li><span class="cm">PA_유니제니</span><span class="sp">424만</span><span class="ro">161%</span></li>
+            <li><span class="cm">PA_이혜민</span><span class="sp">284만</span><span class="ro">210%</span></li>
+          </ul>
+          <p class="cand-note">유니제니 424만·161%로 킬콘 근접 — PA 라인 승격 여력.</p>
+        </details>
+      </div>
+
+    </div>
+    <div class="note">
+      <span class="tag">담당자 포인트</span>
+      <p><b>김승희</b>가 킬콘 5건·아임웹 196%로 규모·효율·킬콘 모두 최상위 — 버섯목 인체훅(2,023만/238%)이 월 최대 소재</p>
+      <p><b>최현진</b>은 가정의달C(1,826만)·홈쇼핑 실제리뷰(1,072만) 대형 2건, <b>김희진</b>은 팔꿈치 헬스엘보 혜택디벨로 킬콘 1건 확보</p>
+      <p><b>김익환</b>(자연 PA)은 PA_오룸이 매체 ROAS 438%로 킬콘 진입 — PA 소재 중 가장 효율 우수</p>
+    </div>
+  </section>
+
+  <!-- 4. 주차별 추이 -->
+  <section>
+    <div class="sec-head"><span class="sec-num">4</span><h2>주차별 추이 <span class="name-sm" style="font-size:.6em">· META 전체</span></h2></div>
+    <p class="sec-desc">6월 1~4주차 META 흐름. <b>3주차에 광고비·매출이 정점</b>, <b>2주차 ROAS(215%)</b>가 월중 최고였습니다.</p>
+    <div class="wk-grid">
+      <div class="wk-card"><div class="w">1주차</div><div class="r">189%</div><div class="d">광고비 2,390만<br>매출 4,514만</div></div>
+      <div class="wk-card peak"><div class="w">2주차 · 최고 효율</div><div class="r pk">215%</div><div class="d">광고비 3,653만<br>매출 7,859만</div></div>
+      <div class="wk-card"><div class="w">3주차 · 최대 집행</div><div class="r">177%</div><div class="d">광고비 5,653만<br>매출 1억 4만</div></div>
+      <div class="wk-card"><div class="w">4주차</div><div class="r">177%</div><div class="d">광고비 2,895만<br>매출 5,112만</div></div>
+    </div>
+    <div class="note">
+      <span class="tag">추이 포인트</span>
+      <p>3주차 대규모 증액(5,653만)에서 ROAS 177%로 둔화 — 증액 구간의 효율 방어가 과제</p>
+    </div>
+  </section>
+
+  <!-- 5. 총평 -->
+  <section>
+    <div class="sec-head"><span class="sec-num">5</span><h2>6월 회고 & 하반기(3Q) 실행</h2></div>
+    <p class="sec-desc">6월 성과 회고와 3Q 실행 방향입니다.</p>
+
+    <h3 class="grp-h">📌 6월 회고</h3>
+    <div class="ins-grid">
+      <div class="ins good">
+        <h4>✅ 잘된 점</h4>
+        <p><b>킬콘 9건 확보</b> — 김승희 5건을 축으로 대형 소재가 안정적으로 터짐. <b>훅베리(인트로)</b>가 소구점을 잘 잡고 워킹 — 하나의 소구점이어도 고객 반응 <b>P.P를 뾰족하게</b> 잡는 게 핵심(일자목 → 각목·경추기형·머리떨굼 등).</p>
+      </div>
+      <div class="ins watch">
+        <h4>⚠️ 개선할 점</h4>
+        <p><b>구글 리타겟 효율</b>(아임웹 93%)과 <b>증액 구간 ROAS 방어</b>가 과제. <b>허편케(163%)</b>·<b>김익환 PA</b> 라인은 소재 대형화·효율 개선 필요.</p>
+      </div>
+    </div>
+
+    <h3 class="grp-h">🚀 하반기(3Q) 실행</h3>
+    <div class="ins-grid">
+      <div class="ins good">
+        <h4>🎯 소재 확장</h4>
+        <p>킬콘 소재의 훅·소구점을 표준화해 신규 소구점(흉쇄유돌근·일자목)으로 확장. 2주차 고효율 세팅을 증액 기준으로 정착.</p>
+      </div>
+      <div class="ins good">
+        <h4>📈 PA 확장 <span class="name-sm" style="font-size:.62em">· 3Q 핵심</span></h4>
+        <p>구글 <b>리타겟 → 논타겟 확장</b>에서 PA가 검증된 주력. <b>PA 확장</b>을 3Q 최우선으로 두고, 이후 <b>언더바이럴 결합 형태</b> 진입 고려.</p>
+      </div>
+    </div>
+    <div class="note">
+      <span class="tag">콘텐츠팀 협업</span>
+      <p><b>팔꿈치</b> — 초반 진입 시 콘텐츠팀과 KW·소재 기획을 함께 아이데이션하고, 소재를 나눠 운영할지 소통한 방식이 유효 → 지속</p>
+      <p><b>복순마(신규 테스트)</b> — 콘텐츠팀과 아이데이션 후 진입 고려</p>
+      <p><b>익환·도현</b> — 콘텐츠팀 희강님과 소구점 운영을 함께 아이데이션·관리 진행 고려</p>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>마케팅 1팀 · 2026년 6월 결산 보고서</b></p>
+    <p style="margin-top:6px">META·구글 아임웹 기준 / GFA 매체 기준 · 담당자별은 소재명 기준 합산 · 킬콘 = 광고비 450만↑ &amp; ROAS 150%↑</p>
+  </footer>
+
+</div>
+</body>
+</html>
